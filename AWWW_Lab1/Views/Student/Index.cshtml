@@ -1,0 +1,18 @@
+﻿@model AWWW_Lab1.Models.Student;
+
+<h1>Student</h1>
+<br />
+
+<h3>@Model.FirstName @Model.LastName</h3>
+<p>
+    <b>Numer indeksu: </b>
+    @Model.indexNumber
+</p>
+<p>
+    <b>Data urodzenia: </b>
+    @Model.birthDate.ToShortDateString();
+</p>
+<p>
+    <b>Kierunek: </b>
+    @Model.Faculty
+</p>

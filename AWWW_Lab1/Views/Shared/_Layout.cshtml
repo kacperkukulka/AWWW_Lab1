@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<link href="~/css/style.css" rel="stylesheet" />
+	</head>
+	<body class="container-fluid m-0 p-0">
+		<header>
+			<nav class="navbar navbar-light bg-light">
+				<a class="navbar-brand text-dark p-3" asp-controller="Home" asp-action="Index">Home</a>
+			</nav>
+		</header>
+		<main class="m-3">
+			@RenderBody()
+		</main>
+		<footer>
+			&copy; 2002
+		</footer>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
