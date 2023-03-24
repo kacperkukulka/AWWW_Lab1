@@ -10,12 +10,26 @@
 		<header>
 			<nav class="navbar navbar-light bg-light">
 				<a class="navbar-brand text-dark p-3" asp-controller="Home" asp-action="Index">Home</a>
+				<div class="nav-item dropdown flex-grow-1">
+					<a class="nav-link dropdown-toggle" href="#" type="button"
+					   id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Management
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" asp-controller="Authors" asp-action="Index">Authors</a>
+						<a class="dropdown-item" asp-controller="Categories" asp-action="Index">Categories</a>
+						<a class="dropdown-item" asp-controller="Tags" asp-action="Index">Tags</a>
+						<a class="dropdown-item" asp-controller="Leagues" asp-action="Index">Leagues</a>
+						<a class="dropdown-item" asp-controller="EventTypes" asp-action="Index">Event types</a>
+						<a class="dropdown-item" asp-controller="Positions" asp-action="Index">Positions</a>
+					</div>
+				</div>
 			</nav>
 		</header>
 		<main class="m-3">
 			@RenderBody()
 		</main>
-		<footer>
+		<footer class="p-3">
 			&copy; 2002
 		</footer>
 	</body>

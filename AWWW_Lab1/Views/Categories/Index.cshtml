@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.Category>
+
+<h1>Categories</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model) {
+            <tr>
+                <td>@cat.Id</td>
+                <td>@cat.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add Category
+</a>

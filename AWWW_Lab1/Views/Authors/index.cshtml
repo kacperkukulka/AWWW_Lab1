@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.Author>
+
+<h1>Authors</h1><br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var author in Model) {
+            <tr>
+                <td>@author.Id</td>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+    asp-action="AddNew">
+    Add Author
+</a>

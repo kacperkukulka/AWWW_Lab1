@@ -1,0 +1,9 @@
+﻿@model AWWW_Lab1.Models.Category
+
+<h1>Add new category</h1> <br/>
+<form asp-action="AddNew">
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>

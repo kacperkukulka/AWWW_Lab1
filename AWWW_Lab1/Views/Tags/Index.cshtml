@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.Tag>
+
+<h1>Tags</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model) {
+            <tr>
+                <td>@tag.Id</td>
+                <td>@tag.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add Tag
+</a>

@@ -6,27 +6,25 @@ namespace AWWW_Lab1 {
     public class AppDbContext : DbContext {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             :base(options) {
-        
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
         }
 
-
-        public DbSet<Author> Author { get; set; }
-        public DbSet<Article> Article { get; set; }
-        public DbSet<Comment> Comment { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Tag> Tag { get; set; }
-        public DbSet<League> League { get; set; }
-        public DbSet<Team> Team { get; set; }
-        public DbSet<Match> Match { get; set; }
-        public DbSet<Player> Player { get; set; }
-        public DbSet<Position> Position { get; set; }
-        public DbSet<MatchPlayer> MatchPlayer { get; set; }
-        public DbSet<MatchEvent> MatchEvent { get; set; }
-        public DbSet<EventType> EventType { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<League> Leagues { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<MatchPlayer> MatchPlayers { get; set; }
+        public DbSet<MatchEvent> MatchEvents { get; set; }
+        public DbSet<EventType> EventTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Match>()
