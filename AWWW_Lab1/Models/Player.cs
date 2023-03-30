@@ -1,6 +1,8 @@
-﻿namespace AWWW_Lab1.Models
+﻿using AWWW_Lab1.Interfaces;
+
+namespace AWWW_Lab1.Models
 {
-    public class Player
+    public class Player: IModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

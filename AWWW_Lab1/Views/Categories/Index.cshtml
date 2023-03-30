@@ -7,6 +7,7 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.Id)</th>
             <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -14,6 +15,11 @@
             <tr>
                 <td>@cat.Id</td>
                 <td>@cat.Name</td>
+                <td>
+                    <a type="button" class="btn btn-outline-primary" asp-action="Info" asp-route-id="@cat.Id">Info</a>
+                    <a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@cat.Id">Edit</a>
+                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@cat.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

@@ -1,0 +1,11 @@
+﻿@model AWWW_Lab1.Models.Tag
+
+<h1>Edit @Model.GetType().Name.ToLower()</h1>
+<br />
+<form asp-action="Edit">
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control" value="@Model.Name" />
+    <br />
+    <input type="submit" class="btn btn-success" value="Save changes" />
+    <a type="button" class="btn btn-danger" asp-action="Index">Discard changes</a>
+</form>

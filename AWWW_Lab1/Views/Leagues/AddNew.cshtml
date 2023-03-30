@@ -1,0 +1,16 @@
+﻿@model AWWW_Lab1.Models.League
+
+<h1>Add new league</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <br />
+    <label asp-for="Country" class="form-label"></label>
+    <input asp-for="Country" class="form-control" />
+    <br />
+    <label asp-for="Level" class="form-label"></label>
+    <input asp-for="Level" class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>

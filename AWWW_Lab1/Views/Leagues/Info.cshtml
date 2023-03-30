@@ -1,0 +1,14 @@
+﻿@using System.Collections;
+@model AWWW_Lab1.Models.League
+
+<h1>Info about @Model.GetType().Name.ToLower()</h1>
+<br />
+<form asp-action="AddNew">
+    @foreach (var property in Model.GetType().GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
+        <label asp-for=@($"{{nameof(Model)}.{property.Name}}") class="form-label"></label>
+        <input asp-for="@property" class="form-control" disabled value="@property.GetValue(Model)">
+        <br />
+    }
+</form>
+<a type="button" class="btn btn-outline-primary" asp-action="Index">Back</a>
+<a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>

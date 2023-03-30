@@ -1,0 +1,14 @@
+﻿@model AWWW_Lab1.Models.Category
+
+<h1>Info about @Model.GetType().Name.ToLower()</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="Id" class="form-label"></label>
+    <input asp-for="Id" class="form-control" disabled value="@Model.Id" />
+    <br />
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control" disabled value="@Model.Name" />
+    <br />
+</form>
+<a type="button" class="btn btn-outline-primary" asp-action="Index">Back</a>
+<a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>

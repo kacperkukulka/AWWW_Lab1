@@ -245,7 +245,7 @@ namespace AWWW_Lab1.Migrations
                     b.Property<int>("PlayerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PositionID")
+                    b.Property<int>("PositionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -254,7 +254,7 @@ namespace AWWW_Lab1.Migrations
 
                     b.HasIndex("PlayerId");
 
-                    b.HasIndex("PositionID");
+                    b.HasIndex("PositionId");
 
                     b.ToTable("MatchPlayers");
                 });
@@ -294,17 +294,17 @@ namespace AWWW_Lab1.Migrations
 
             modelBuilder.Entity("AWWW_Lab1.Models.Position", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Positions");
                 });
@@ -379,12 +379,12 @@ namespace AWWW_Lab1.Migrations
                     b.Property<int>("PlayersId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PositionsID")
+                    b.Property<int>("PositionsId")
                         .HasColumnType("int");
 
-                    b.HasKey("PlayersId", "PositionsID");
+                    b.HasKey("PlayersId", "PositionsId");
 
-                    b.HasIndex("PositionsID");
+                    b.HasIndex("PositionsId");
 
                     b.ToTable("PlayerPosition");
                 });
@@ -485,7 +485,7 @@ namespace AWWW_Lab1.Migrations
 
                     b.HasOne("AWWW_Lab1.Models.Position", "Position")
                         .WithMany("MatchPlayers")
-                        .HasForeignKey("PositionID")
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -543,7 +543,7 @@ namespace AWWW_Lab1.Migrations
 
                     b.HasOne("AWWW_Lab1.Models.Position", null)
                         .WithMany()
-                        .HasForeignKey("PositionsID")
+                        .HasForeignKey("PositionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

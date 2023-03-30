@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AWWW_Lab1.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,13 +70,13 @@ namespace AWWW_Lab1.Migrations
                 name: "Positions",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Positions", x => x.ID);
+                    table.PrimaryKey("PK_Positions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -208,7 +208,7 @@ namespace AWWW_Lab1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MatchId = table.Column<int>(type: "int", nullable: false),
                     PlayerId = table.Column<int>(type: "int", nullable: false),
-                    PositionID = table.Column<int>(type: "int", nullable: false)
+                    PositionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -226,10 +226,10 @@ namespace AWWW_Lab1.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MatchPlayers_Positions_PositionID",
-                        column: x => x.PositionID,
+                        name: "FK_MatchPlayers_Positions_PositionId",
+                        column: x => x.PositionId,
                         principalTable: "Positions",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -238,11 +238,11 @@ namespace AWWW_Lab1.Migrations
                 columns: table => new
                 {
                     PlayersId = table.Column<int>(type: "int", nullable: false),
-                    PositionsID = table.Column<int>(type: "int", nullable: false)
+                    PositionsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlayerPosition", x => new { x.PlayersId, x.PositionsID });
+                    table.PrimaryKey("PK_PlayerPosition", x => new { x.PlayersId, x.PositionsId });
                     table.ForeignKey(
                         name: "FK_PlayerPosition_Players_PlayersId",
                         column: x => x.PlayersId,
@@ -250,10 +250,10 @@ namespace AWWW_Lab1.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PlayerPosition_Positions_PositionsID",
-                        column: x => x.PositionsID,
+                        name: "FK_PlayerPosition_Positions_PositionsId",
+                        column: x => x.PositionsId,
                         principalTable: "Positions",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -396,14 +396,14 @@ namespace AWWW_Lab1.Migrations
                 column: "PlayerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MatchPlayers_PositionID",
+                name: "IX_MatchPlayers_PositionId",
                 table: "MatchPlayers",
-                column: "PositionID");
+                column: "PositionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlayerPosition_PositionsID",
+                name: "IX_PlayerPosition_PositionsId",
                 table: "PlayerPosition",
-                column: "PositionsID");
+                column: "PositionsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_TeamId",

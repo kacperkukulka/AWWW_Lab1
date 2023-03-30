@@ -1,0 +1,10 @@
+﻿@model AWWW_Lab1.Models.EventType
+
+<h1>Add new event type</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="Name" class="form-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>

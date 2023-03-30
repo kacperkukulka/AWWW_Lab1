@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.League>
+
+<h1>Leagues</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Country)</th>
+            <th>@Html.DisplayNameFor(model => model.Level)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var league in Model) {
+            <tr>
+                <td>@league.Id</td>
+                <td>@league.Name</td>
+                <td>@league.Country</td>
+                <td>@league.Level</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add League
+</a>

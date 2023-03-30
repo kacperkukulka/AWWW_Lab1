@@ -24,5 +24,36 @@ namespace AWWW_Lab1.Controllers {
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Info(int id) {
+            var tag = _context.Tags.FirstOrDefault(i => i.Id == id);
+            if (tag == null)
+                return RedirectToAction(nameof(Index));
+            else
+                return View(tag);
+        }
+
+        public IActionResult Edit(int id) {
+            var tag = _context.Tags.FirstOrDefault(i => i.Id == id);
+            if (tag == null)
+                return RedirectToAction(nameof(Index));
+            else
+                return View(tag);
+        }
+
+        [HttpPost]
+        public IActionResult Edit([Bind("Id, Name")] Tag newTag) {
+            _context.Update(newTag);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int id) {
+            _context.Remove(_context.Tags.Single(i => i.Id == id));
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

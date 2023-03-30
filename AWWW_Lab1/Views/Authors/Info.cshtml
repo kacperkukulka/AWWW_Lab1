@@ -1,0 +1,17 @@
+﻿@model AWWW_Lab1.Models.Author
+
+<h1>Info about author</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="Id" class="form-label"></label>
+    <input asp-for="Id" class="form-control" disabled value="@Model.Id" />
+    <br />
+    <label asp-for="FirstName" class="form-label"></label>
+    <input asp-for="FirstName" class="form-control" disabled value="@Model.FirstName"/>
+    <br />
+    <label asp-for="LastName" class="form-label"></label>
+    <input asp-for="LastName" class="form-control" disabled value="@Model.LastName"/>
+    <br />
+</form>
+<a type="button" class="btn btn-outline-primary" asp-action="Index">Back</a>
+<a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>

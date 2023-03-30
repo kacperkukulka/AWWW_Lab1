@@ -1,6 +1,8 @@
-﻿namespace AWWW_Lab1.Models
+﻿using AWWW_Lab1.Interfaces;
+
+namespace AWWW_Lab1.Models
 {
-    public class Match
+    public class Match: IModel
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

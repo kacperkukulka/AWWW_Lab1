@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.EventType>
+
+<h1>Event types</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var eventType in Model) {
+            <tr>
+                <td>@eventType.Id</td>
+                <td>@eventType.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add Event Type
+</a>

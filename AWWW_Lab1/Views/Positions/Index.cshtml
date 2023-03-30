@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.Position>
+
+<h1>Positions</h1>
+<h1>Add new position</h1>
+<form asp-action="Index">
+    <label for="Name" class="form-label">Name</label>
+    <input id="Name" name="Name" class="form-control" />
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pos in Model) {
+            <tr>
+                <td>@pos.Id</td>
+                <td>@pos.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add Position
+</a>

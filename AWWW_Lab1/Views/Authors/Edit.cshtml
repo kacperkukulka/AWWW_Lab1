@@ -1,0 +1,14 @@
+﻿@model AWWW_Lab1.Models.Author
+
+<h1>Edit author</h1>
+<br />
+<form asp-action="Edit">
+    <label asp-for="FirstName" class="form-label"></label>
+    <input asp-for="FirstName" class="form-control" value="@Model.FirstName"/>
+    <br />
+    <label asp-for="LastName" class="form-label"></label>
+    <input asp-for="LastName" class="form-control" value="@Model.LastName"/>
+    <br />
+    <input type="submit" class="btn btn-success" value="Save changes"/>
+    <a type="button" class="btn btn-danger" asp-action="Index">Discard changes</a>
+</form>
