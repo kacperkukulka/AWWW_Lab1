@@ -1,24 +1,29 @@
 ﻿@model IEnumerable<AWWW_Lab1.Models.Tag>
+@using System.Collections;
 
 <h1>Tags</h1>
 <br />
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Id)</th>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            @foreach (var property in Model.GetType().GetGenericArguments()[0].GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
+                <th>@property.Name</th>
+            }
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var tag in Model) {
+        @foreach (var obj in Model) {
             <tr>
-                <td>@tag.Id</td>
-                <td>@tag.Name</td>
+                @foreach (var property in obj.GetType().GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
+                    <td>@property.GetValue(obj)</td>
+                }
                 <td>
-                    <a type="button" class="btn btn-outline-primary" asp-action="Info" asp-route-id="@tag.Id">Info</a>
-                    <a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@tag.Id">Edit</a>
-                    <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@tag.Id">Delete</a>
+                    @{
+                        <a type="button" class="btn btn-outline-primary" asp-action="Info" asp-route-id="@obj.Id">Info</a>
+                        <a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                        <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+                     }
                 </td>
             </tr>
         }
@@ -27,5 +32,5 @@
 
 <a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
    asp-action="AddNew">
-    Add Tag
+    Add League
 </a>
