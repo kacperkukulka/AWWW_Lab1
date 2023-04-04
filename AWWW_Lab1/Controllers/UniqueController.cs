@@ -17,10 +17,10 @@ namespace AWWW_Lab1.Controllers {
 
         public async Task<IActionResult> Index() {
             DbSet<T> dbSet = _context.Set<T>();
-            return View(dbSet.ToList());
+            return View(await dbSet.ToListAsync());
         }
 
-        public async Task<IActionResult> AddNew() {
+        public IActionResult AddNew() {
             return View();
         }
 
@@ -40,34 +40,41 @@ namespace AWWW_Lab1.Controllers {
         }
         
         public async Task<IActionResult> Info(int id) {
-            var author = await _context.Set<T>()!.FirstOrDefaultAsync(i => i.Id == id);
-            if (author == null)
+            var property = await _context.Set<T>()!.FirstOrDefaultAsync(i => i.Id == id);
+            if (property == null)
                 return RedirectToAction(nameof(Index));
             else
-                return View(author);
+                return View(property);
         }
-        /* 
-        public IActionResult Edit(int id) {
-            var author = _context.Authors.FirstOrDefault(i => i.Id == id);
-            if (author == null)
+         
+        public async Task<IActionResult> Edit(int id) {
+            var property = await _context.Set<T>()!.FirstOrDefaultAsync(i => i.Id == id);
+            if (property == null)
                 return RedirectToAction(nameof(Index));
             else
-                return View(author);
+                return View(property);
         }
-
+        
         [HttpPost]
-        public IActionResult Edit([Bind()] Author newAuthor) {
-            _context.Update(newAuthor);
+        public async Task<IActionResult> Edit(IFormCollection formCollection) {
+            T t = new T();
+            int i = 0;
+            foreach (var a in formCollection) {
+                if (i++ == formCollection.Count - 1)
+                    break;
+                var property = typeof(T).GetProperty(a.Key);
+                property!.SetValue(t, Convert.ChangeType(a.Value[0]!, property.PropertyType));
+            }
+            _context.Update(t);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        
+        public async Task<IActionResult> Delete(int id) {
+            _context.Remove(_context.Set<T>()!.Single(i => i.Id == id));
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult Delete(int id) {
-            _context.Remove(_context.Authors.Single(i => i.Id == id));
-            _context.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
-        }*/
     }
 }

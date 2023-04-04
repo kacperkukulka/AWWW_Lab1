@@ -3,7 +3,7 @@
 
 <h1>Info about @Model.GetType().Name.ToLower()</h1>
 <br />
-<form asp-action="AddNew">
+<form>
     @foreach (var property in Model.GetType().GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
         <label for="@property.Name" class="form-label">@property.Name</label>
         <input id="@property.Name" name="@property.Name" class="form-control" disabled value="@property.GetValue(Model)">
@@ -11,4 +11,3 @@
     }
 </form>
 <a type="button" class="btn btn-outline-primary" asp-action="Index">Back</a>
-<a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>

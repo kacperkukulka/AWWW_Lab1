@@ -1,16 +1,19 @@
-﻿@model AWWW_Lab1.Models.League
+﻿@using System.Collections;
+@{
+    var modelType = typeof(AWWW_Lab1.Models.League);
+}
 
 <h1>Add new league</h1>
 <br />
 <form asp-action="AddNew">
-    <label asp-for="Name" class="form-label"></label>
-    <input asp-for="Name" class="form-control" />
-    <br />
-    <label asp-for="Country" class="form-label"></label>
-    <input asp-for="Country" class="form-control" />
-    <br />
-    <label asp-for="Level" class="form-label"></label>
-    <input asp-for="Level" class="form-control" />
+    @foreach (var property in modelType.GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
+        if (property.Name != "Id")
+        {
+            <label for="@property.Name" class="form-label">@property.Name</label>
+            <input id="@property.Name" name="@property.Name" class="form-control">
+        }
+    }
     <br />
     <input type="submit" class="btn btn-success" value="Add" />
 </form>
+<a asp-action="Index" class="btn btn-primary">Back</a>

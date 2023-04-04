@@ -1,0 +1,18 @@
+﻿@model AWWW_Lab1.Models.League
+@using System.Collections;
+
+<h1>Edit @Model.GetType().Name.ToLower()</h1>
+<br />
+<form asp-action="Edit">
+    <input type="hidden" asp-for="@Model.Id" value=@Model.Id>
+    @foreach (var property in Model.GetType().GetProperties().Where(i => !typeof(IList).IsAssignableFrom(i.PropertyType))) {
+        if (property.Name != "Id")
+        {
+            <label for="@property.Name" class="form-label">@property.Name</label>
+            <input id="@property.Name" name="@property.Name" class="form-control" value="@property.GetValue(Model)">
+            <br />
+        }
+    }
+    <input type="submit" class="btn btn-primary" value="Edit"/>
+</form>
+<a class="btn btn-outline-primary" asp-action="Index">Back</a>
