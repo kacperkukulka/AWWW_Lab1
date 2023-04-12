@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AWWW_Lab1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230330105609_Initial")]
+    [Migration("20230411095809_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -285,7 +285,7 @@ namespace AWWW_Lab1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -503,9 +503,7 @@ namespace AWWW_Lab1.Migrations
                 {
                     b.HasOne("AWWW_Lab1.Models.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Team");
                 });

@@ -1,0 +1,21 @@
+﻿@model AWWW_Lab1.Models.TeamVM
+
+<h1>Add new player</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="Name" class="form-label"></label><br />
+    <input asp-for="Name" class="form-control" /><br />
+    <label asp-for="Country" class="form-label"></label><br />
+    <input asp-for="Country" class="form-control" /><br />
+    <label asp-for="City" class="form-label"></label><br />
+    <input asp-for="City" class="form-control" /><br />
+    <label asp-for="FoundingDate" class="form-label"></label><br />
+    <input asp-for="FoundingDate" class="form-control" /><br />
+    <label asp-for="LeagueId" class="form-label"></label><br />
+    @foreach(var league in ViewBag.leagues){
+        <input type="radio" asp-for="LeagueId" value="@league.Id"/>@league.Name<br/>
+    }
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>
+<a asp-action="Index" class="btn btn-primary">Back</a>

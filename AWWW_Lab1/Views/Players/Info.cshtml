@@ -1,0 +1,19 @@
+﻿@model AWWW_Lab1.Models.Player
+
+<h1>Add new player</h1>
+<br />
+<form asp-action="AddNew">
+    <label asp-for="FirstName" class="form-input"></label><br />
+    <input asp-for="FirstName" class="form-control" disabled/><br />
+    <label asp-for="LastName" class="form-input"></label><br />
+    <input asp-for="LastName" class="form-control" disabled/><br />
+    <label asp-for="Country" class="form-input"></label><br />
+    <input asp-for="Country" class="form-control" disabled/><br />
+    <label asp-for="BirthDate" class="form-input"></label><br />
+    <input asp-for="BirthDate" class="form-control" disabled/><br />
+    <label asp-for="Positions" class="form-control"></label><br />
+    <select asp-for="Positions" asp-items="@ViewBag.positions" class="form-control" disabled></select>
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>
+<a asp-action="Index" class="btn btn-primary">Back</a>
