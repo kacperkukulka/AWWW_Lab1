@@ -11,7 +11,7 @@
             <h5>@article.Lead</h5>
             <hr/>
             <p>Creation date: @article.CreationDate</p>
-            <p>Author: @article.Author</p>
+            <p>Author: @article.Author.FirstName @article.Author.LastName</p>
             <p>Categories: @article.Category.Name</p>
             <p>Tags: @foreach(var tag in article.Tags){ @(String.Concat(tag.Name,", ")) }</p>
             <hr/>
