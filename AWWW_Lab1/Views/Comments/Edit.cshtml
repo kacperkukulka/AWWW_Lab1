@@ -1,0 +1,10 @@
+﻿@model AWWW_Lab1.Models.Comment
+
+<form asp-action="Edit">
+    <label asp-for="Title" class="form-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <label asp-for="Content" class="form-label"></label>
+    <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+    <input type="submit" class="btn btn-success" value="Edit Comment"/>
+</form>
+<a type="button" class="btn btn-danger" asp-action="Index" asp-controller="Articles">Cancel</a>

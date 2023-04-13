@@ -1,0 +1,30 @@
+﻿@model AWWW_Lab1.Models.Team
+
+<h1>Edit player</h1>
+<br />
+<form asp-action="Edit">
+    <label asp-for="Name" class="form-label"></label><br />
+    <input asp-for="Name" class="form-control" /><br />
+    <label asp-for="Country" class="form-label"></label><br />
+    <input asp-for="Country" class="form-control" /><br />
+    <label asp-for="City" class="form-label"></label><br />
+    <input asp-for="City" class="form-control" /><br />
+    <label asp-for="FoundingDate" class="form-label"></label><br />
+    <input asp-for="FoundingDate" class="form-control" /><br />
+    <h3>League:</h3>
+    @foreach (var league in ViewBag.leagues) {
+        if (league.Id == Model.League.Id)
+        {
+            <input type="radio" name="LeagueId" value="@league.Id" checked/>
+        }
+        else
+        {
+            <input type="radio" name="LeagueId" value="@league.Id" />
+        }
+        @league.Name
+        <br />
+    }
+    <br />
+    <input type="submit" class="btn btn-success" value="Edit" />
+</form>
+<a asp-action="Index" class="btn btn-primary">Back</a>

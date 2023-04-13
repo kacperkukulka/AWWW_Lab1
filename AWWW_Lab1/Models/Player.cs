@@ -20,7 +20,6 @@ namespace AWWW_Lab1.Models
             LastName = playervm.LastName;
             Country = playervm.Country;
             BirthDate = playervm.BirthDate;
-            Team = playervm.Team;
         }
     }
 }

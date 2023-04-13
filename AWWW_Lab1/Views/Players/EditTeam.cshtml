@@ -1,2 +1,15 @@
 ﻿@model AWWW_Lab1.Models.Player
 
+<div class="row">
+    <span>Team of @Model.FirstName @Model.LastName: @(Model.Team != null ? Model.Team.Name : "None")</span>
+    <a asp-action="DeleteTeam" asp-route-id="@Model.Id" class="btn btn-danger">Delete Team</a>
+
+    <h2>Change team</h2>
+    <form asp-action="AddTeam" asp-route-id="@Model.Id">
+        @foreach (var team in ViewBag.teams) {
+            <input type="radio" id="@("team" + team.Id)" name="TeamId" value="@team.Id">
+            <label for="@("team" + team.Id)">@team.Name</label>
+        }
+        <input type="submit" class="btn btn-success" value="Add team"/>
+    </form>
+</div>

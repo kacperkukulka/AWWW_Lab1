@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AWWW_Lab1.Models.Article>
+@using System.Collections;
+@using AWWW_Lab1.Models;
+
+<h1>Articles</h1>
+<br />
+<table class="table">
+    @foreach(var article in Model) {
+        <div class="border border-2 p-3 m-3">
+            <h1>@article.Title</h1>
+            <h5>@article.Lead</h5>
+            <hr/>
+            <p>Creation date: @article.CreationDate</p>
+            <p>Author: @article.Author</p>
+            <p>Categories: @article.Category.Name</p>
+            <p>Tags: @foreach(var tag in article.Tags){ @(String.Concat(tag.Name,", ")) }</p>
+            <hr/>
+            <p>@article.Content</p>
+            <hr/>
+            <a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@article.Id">Edit</a>
+            <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@article.Id">Delete</a>
+            <div class="border border-2 p-3 m-3">
+                <h5>Comment section</h5>
+                @foreach(var comment in article.Comments) {
+                    <div class="border border-2 p-3 m-3">
+                        <h6>@comment.Title</h6>
+                        <hr/>
+                        <p>@comment.Content</p>
+                        <a type="button" class="btn btn-secondary" asp-action="Edit" asp-controller="Comments" asp-route-id="@comment.Id">Edit</a>
+                        <a type="button" class="btn btn-danger" asp-action="Delete" asp-controller="Comments" asp-route-id="@comment.Id">Delete</a>
+                    </div>
+                }
+                <a type="button" class="btn btn-primary" asp-action="AddNew" asp-controller="Comments" asp-route-id="@article.Id">Add comment</a> 
+            </div>
+        </div>
+    }
+</table>
+
+<a type="button" class="btn btn-success" style="position:fixed; right: 25px; bottom: 25px"
+   asp-action="AddNew">
+    Add Article
+</a>

@@ -7,7 +7,7 @@ namespace AWWW_Lab1.Models {
         public string LastName { get; set; }
         public string Country { get; set; }
         public DateTime BirthDate { get; set; }
-        public Team? Team { get; set; }
+        public int? TeamId { get; set; }
         public List<int> PositionsId { get; set; }
         public List<MatchPlayer> MatchPlayers { get; set; }
     }

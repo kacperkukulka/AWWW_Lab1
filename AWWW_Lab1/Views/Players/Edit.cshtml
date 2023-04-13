@@ -1,0 +1,27 @@
+﻿@model AWWW_Lab1.Models.Player
+
+<h1>Add new player</h1>
+<br />
+<form asp-action="Edit">
+    <label asp-for="FirstName" class="form-input"></label><br />
+    <input asp-for="FirstName" class="form-control" /><br />
+    <label asp-for="LastName" class="form-input"></label><br />
+    <input asp-for="LastName" class="form-control" /><br />
+    <label asp-for="Country" class="form-input"></label><br />
+    <input asp-for="Country" class="form-control" /><br />
+    <label asp-for="BirthDate" class="form-input"></label><br />
+    <input asp-for="BirthDate" class="form-control" /><br />
+    <label for="PositionsId" class="form-control"></label><br />
+    <select id="PositionsId" name="PositionsId" class="form-control" multiple>
+        @foreach(var position in ViewBag.positions) {
+            @if (Model.Positions.Select(x => x.Id).ToList().Contains(position.Id)) {
+                <option value="@position.Id" selected>@position.Name</option>
+            } else {
+                <option value="@position.Id">@position.Name</option>
+            }
+        }
+    </select>
+    <br />
+    <input type="submit" class="btn btn-success" value="Add" />
+</form>
+<a asp-act
